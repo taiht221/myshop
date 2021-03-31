@@ -1,0 +1,159 @@
+.loading-state {
+  @keyframes shine {
+    0% {
+      background-position: -100% 0;
+    }
+    100% {
+      background-position: 100% 0;
+    }
+  }
+  .--loading {
+    background: linear-gradient(to right, #f0f0f0 5%, #d6d6d6 35%, #f0f0f0 50%);
+    background-size: 50% 100%;
+    animation: shine 1s ease-in-out infinite;
+  }
+
+  .category-list--title {
+    div {
+      h2 {
+        opacity: 0;
+        color: #ccc;
+      }
+    }
+  }
+  .filter-choose {
+    > * {
+      opacity: 0;
+    }
+    width: 50%;
+  }
+  .filter-list {
+    > * {
+      opacity: 0;
+    }
+    width: 30%;
+  }
+  .categories {
+    padding: 10px;
+    color: #ccc;
+    .title {
+      color: white;
+      background: white;
+    }
+    ul {
+      li {
+        .category-name,
+        .select-filter {
+          color: white;
+          background: white;
+        }
+      }
+    }
+  }
+  .brands {
+    padding: 10px;
+    color: #ccc;
+    .title {
+      color: white;
+      background: white;
+    }
+    .check2 label span {
+      color: white;
+      background: white;
+    }
+  }
+  .rating {
+    padding: 10px;
+    color: #ccc;
+    .title {
+      color: white;
+      background: white;
+    }
+    .check2 label span {
+      display: block;
+      color: white;
+      background: white;
+    }
+  }
+  .category__right {
+    .category-card {
+      color: #ccc;
+      .card-img {
+        div {
+          max-height: 180px;
+          height: 180px;
+          color: white;
+          background: white;
+        }
+      }
+      .card-infor {
+        .card-infor__left,
+        .card-infor__right {
+          > * {
+            color: white;
+            background: white;
+            display: block;
+          }
+          .btn-filter {
+            a {
+              border: none;
+              color: white;
+              background: white;
+            }
+          }
+        }
+        .card-infor__left {
+          > * {
+            margin: 5px 0;
+          }
+        }
+        .card-infor__right {
+          .price,
+          .sale-price {
+            width: 50%;
+          }
+          > * {
+            margin: 5px 0;
+          }
+        }
+      }
+    }
+  }
+}
+.filter-choose .check1 {
+  margin-bottom: 16px;
+  .MuiTabs-indicator {
+    height: 3px;
+  }
+}
+.category__left {
+  border-right: 1px solid #e0e0e0;
+}
+.category-list--title .view div {
+  cursor: default;
+  align-items: center;
+  i {
+    width: unset;
+    height: unset;
+  }
+}
+.category-list--title .view .view-list {
+  cursor: pointer;
+  &:hover {
+    span {
+      color: green;
+    }
+  }
+}
+.percent {
+  background-color: #ff3d00;
+  color: white;
+}
+.category__right .category-card .card-infor__right {
+  flex-direction: row;
+  align-items: center;
+  .sale-price {
+    margin-left: 16px;
+    margin-bottom: unset;
+  }
+}

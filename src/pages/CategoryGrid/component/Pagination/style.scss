@@ -1,0 +1,38 @@
+.pagination {
+  > span {
+    font-weight: bold;
+  }
+}
+.page-pagination {
+  display: flex;
+  > span {
+    font-weight: bold;
+  }
+  li {
+    a {
+      &:hover {
+        color: green;
+      }
+    }
+    span {
+      font-weight: bold;
+      display: block;
+      &.dot {
+        border: none;
+      }
+    }
+    &:last-child {
+      a {
+        margin-right: 0px;
+      }
+    }
+  }
+  .page-numbers {
+    font-size: 16px;
+    margin-right: 10px;
+    padding: 0 10px;
+  }
+}
+.pagi-wrap {
+  justify-content: flex-end;
+}

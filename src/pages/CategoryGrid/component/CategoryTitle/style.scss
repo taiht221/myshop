@@ -1,0 +1,16 @@
+.category-list--title .view div {
+  cursor: default;
+  align-items: center;
+  i {
+    width: unset;
+    height: unset;
+  }
+}
+.category-list--title .view .view-list {
+  cursor: pointer;
+  &:hover {
+    span {
+      color: green;
+    }
+  }
+}
