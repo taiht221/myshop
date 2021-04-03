@@ -1,1 +1,20 @@
-
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .product-detail__right {
+    .add-cart {
+      flex-direction: column;
+      .add-cart__price {
+        width: 100%;
+      }
+    }
+    .available {
+      width: 100%;
+    }
+  }
+  .product-detail .related-products .category__right {
+    .category-card {
+      width: 50%;
+      margin-right: unset;
+      border: unset;
+    }
+  }
+}

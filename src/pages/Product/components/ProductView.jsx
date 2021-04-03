@@ -29,10 +29,10 @@ export default function ProductView({
 
   return (
     <div className="row category-list--title">
-      <div className="col-lg-6">
+      <div className="col-lg-6 col-xs-12">
         <h2>{cateName}</h2>
       </div>
-      <div className="view col-lg-6">
+      <div className="view col-lg-6 col-xs-12">
         <div
           className="view-list"
           onClick={() => {

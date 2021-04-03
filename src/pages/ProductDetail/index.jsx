@@ -7,6 +7,7 @@ import { useRouteMatch } from 'react-router-dom';
 import ProductDetailsSlide from './component/ProductDetailsSlide';
 import ProductInformation from './component/ProductInformation';
 import RelatedProducts from './component/RelatedProducts';
+import './style.scss';
 export default function ProductDetail() {
   const routerMatch = useRouteMatch();
   const slug = routerMatch.params.slug;

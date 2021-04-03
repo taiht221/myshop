@@ -14,8 +14,8 @@ export default function ProductSort({ currentSort, onChange }) {
   };
   return (
     <div className="row filter-choose" style={{ color: 'green' }}>
-      <div className="col-lg-3"></div>
-      <div className="check1 col-lg-9">
+      <div className="col-lg-3 col-sx-12"></div>
+      <div className="check1 col-lg-9 col-sx-12">
         <div className="lable">Sắp xếp:</div>
         <Tabs
           indicatorColor="secondary"

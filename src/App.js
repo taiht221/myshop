@@ -1,6 +1,7 @@
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import CartPopup from 'components/CartPopup/CartPopup';
 import ProductFeature from 'pages/Product';
+import UserDetails from 'pages/UserDetails/Index';
 import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import Footer from './components/Footer/Footer';
@@ -35,9 +36,9 @@ function App() {
             <Redirect to="/" />
           </Route>
           <Route path="/" exact component={Home} />
-          <Route exact path="/thanh-toan" component={Checkout} />
+          <Route path="/thanh-toan" component={Checkout} />
           <Route path="/search" component={ProductFeature} />
-
+          <Route path="/thong-tin" component={UserDetails} />
           <Route path="/:slug?" component={ProductDetail} />
 
           <Route component={Page404} />

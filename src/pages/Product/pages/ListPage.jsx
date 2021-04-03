@@ -41,9 +41,9 @@ function Listpage(props) {
       ...params,
       page: Number.parseInt(params.page) || 1,
       sort: params.sort || 'real_price.-1',
-      free_ship_badge: params.free_ship_badge === 'true' || '',
-      is_best_price_guaranteed: params.is_best_price_guaranteed === 'true' || null,
-      support_p2h_delivery: params.support_p2h_delivery === 'true' || null,
+      free_ship_badge: params.free_ship_badge === 'true' || false,
+      is_best_price_guaranteed: params.is_best_price_guaranteed === 'true' || false,
+      support_p2h_delivery: params.support_p2h_delivery === 'true' || false,
       categories: Number.parseInt(slug?.substr(slug?.lastIndexOf('id') + 2)),
     };
   }, [location.search, slug]);

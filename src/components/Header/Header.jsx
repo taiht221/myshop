@@ -13,6 +13,7 @@ import { Link } from 'react-router-dom';
 import { openCart } from '../../redux/actions/cartAction';
 import { getCategory } from '../../redux/actions/categoryAction';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import SearchIcon from '@material-ui/icons/Search';
 import './style.scss';
 
 export default function Header() {
@@ -103,7 +104,7 @@ export default function Header() {
         <div className="row">
           <div className="header__top ">
             <div className="header__top--left ">
-              <span>Liên lạc với tôi</span>
+              <span>Liên lạc </span>
               <span>0969045051</span>
               <span>taiht221@gmail.com</span>
             </div>
@@ -163,9 +164,6 @@ export default function Header() {
               <form>
                 <input type="text" placeholder="Tìm kiếm sản phẩm" name="search" />
               </form>
-              <button type="submit">
-                <i className="demo-icon icon-search" />
-              </button>
             </div>
             {categorytitle.loading ? <LinearProgress className={classes.loadingLine} color="secondary" /> : null}
 
@@ -191,7 +189,9 @@ export default function Header() {
         <div className="row"></div>
       </div>
       <Menu anchorEl={anchorEl} keepMounted open={Boolean(anchorEl)} onClose={handleCloseMenu}>
-        <MenuItem onClick={handleCloseMenu}>Thông tin người dùng</MenuItem>
+        <MenuItem onClick={handleCloseMenu}>
+          <Link to="/thong-tin">Thông tin người dùng</Link>
+        </MenuItem>
         <MenuItem
           onClick={() => {
             handleCloseMenu();

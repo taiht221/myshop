@@ -27,6 +27,14 @@ export default function HotProducts(data) {
       preloadImages={false}
       grabCursor={true}
       breakpoints={{
+        320: {
+          width: 300,
+          slidesPerView: 1,
+        },
+        414: {
+          width: 400,
+          slidesPerView: 1,
+        },
         // when window width is >= 640px
         640: {
           width: 640,
@@ -64,10 +72,10 @@ export default function HotProducts(data) {
               <h3>{e.name}</h3>
             </Link>
             <div className="text__price">
-              <span className="price">
+              <span className="sale">
                 {new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(e.real_price)}
               </span>
-              <span className="sale">
+              <span className="price">
                 {new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(e.price)}
               </span>
             </div>

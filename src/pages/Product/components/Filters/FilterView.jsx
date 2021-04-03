@@ -77,15 +77,18 @@ const FILTER_LIST = [
     },
     // onToggle: (filters) => {},
   },
-  // {
-  //   id: 5,
-  //   getLable: (filters) => 'Danh mục',
-  //   isActive: (filters) => true,
-  //   isVisible: (filters) => true,
-  //   isRemovable: true,
-  //   onRemove: (filters) => {},
-  //   onToggle: (filters) => {},
-  // },
+  {
+    id: 5,
+    getLable: (filters) => `Từ ${filters.rating_average} sao`,
+    isActive: (filters) => true,
+    isVisible: (filters) => Object.keys(filters).includes('rating_average'),
+    isRemovable: true,
+    onRemove: (filters) => {
+      const newFilters = { ...filters };
+      delete newFilters.rating_average;
+      return newFilters;
+    },
+  },
 ];
 function FilterView({ filters = {}, onChange = null }) {
   const classes = useStyle();

@@ -1,5 +1,10 @@
 .footer {
+  background-color: #fbfbfb;
+  padding-top: unset;
   @media screen and (min-width: 320px) and (max-width: 767px) {
+    &__wrap {
+      padding: 0 15px;
+    }
     padding-top: 30px;
     .email {
       .search-container {
@@ -14,5 +19,24 @@
         }
       }
     }
+  }
+  .footer__right {
+    padding: 50px 0;
+  }
+  .footer__right h3 {
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.54);
+  }
+  .footer__right a {
+    color: #cecece;
+    color: rgba(0, 0, 0, 0.54);
+  }
+  .copyright {
+    color: #cecece;
+    color: rgba(0, 0, 0, 0.54);
+    padding: 15px 15px;
+    border-top: 1px solid #cecece;
+    display: flex;
+    justify-content: space-between;
   }
 }
