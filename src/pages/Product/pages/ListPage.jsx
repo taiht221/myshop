@@ -35,31 +35,32 @@ function Listpage(props) {
   const [paginate, setPaginate] = useState([]);
   const [loading, setloading] = useState(true);
   const location = useLocation();
+
   const queryParams = useMemo(() => {
     const params = queryString.parse(location.search);
-    return {
+    if (params.free_ship_badge === 'false') {
+      delete params.free_ship_badge;
+    }
+    const query = {
       ...params,
       page: Number.parseInt(params.page) || 1,
       sort: params.sort || 'real_price.-1',
-      free_ship_badge: params.free_ship_badge === 'true' || false,
+      free_ship_badge: params.free_ship_badge === 'true' || null,
       is_best_price_guaranteed: params.is_best_price_guaranteed === 'true' || false,
       support_p2h_delivery: params.support_p2h_delivery === 'true' || false,
       categories: Number.parseInt(slug?.substr(slug?.lastIndexOf('id') + 2)),
     };
+
+    for (const property in query) {
+      if (!query[property]) {
+        delete query[property];
+      }
+    }
+    return query;
   }, [location.search, slug]);
+
   const [productList, setProductList] = useState([]);
 
-  // const [filter, setFilter] = useState(() => ({
-  //   ...queryParams,
-  //   page: Number.parseInt(queryParams.page) || 1,
-  //   sort: queryParams.sort || 'real_price.-1',
-  // }));
-  // useEffect(() => {
-  //   history.push({
-  //     pathname: history.location.pathname,
-  //     search: queryString.stringify(filter),
-  //   });
-  // }, [history, filter]);
   useEffect(() => {
     (async () => {
       try {
@@ -72,7 +73,7 @@ function Listpage(props) {
       setloading(false);
     })();
     return documentTitle === undefined ? '' : documentTitle;
-  }, [queryParams]);
+  }, [queryParams, documentTitle]);
 
   const scrollTop = () => {
     window.scrollTo({
@@ -114,10 +115,20 @@ function Listpage(props) {
   };
   const handleFiltersChange = (newFilters) => {
     setloading(true);
+    // if (newFilters.is_best_price_guaranteed === false && queryParams.is_best_price_guaranteed === false) {
+    //   delete newFilters.is_best_price_guaranteed;
+    //   delete queryParams.is_best_price_guaranteed;
+    // }
     const filter = {
       ...queryParams,
       ...newFilters,
     };
+    for (const property in filter) {
+      if (!filter[property]) {
+        delete filter[property];
+      }
+    }
+
     history.push({
       pathname: history.location.pathname,
       search: queryString.stringify(filter),

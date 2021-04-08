@@ -1,15 +1,11 @@
 import StorageKeys from 'constants/storage-keys';
-import { boolean } from 'yup/lib/locale';
 import {
   LOGIN_USER,
   LOGIN_USER_FAIL,
   LOGIN_USER_SUCCESS,
-  LOADING_USER,
   REGISTER_USER,
   REGISTER_USER_FAIL,
   REGISTER_USER_SUCCESS,
-  LOADING_USER_SUCCESS,
-  LOADING_USER_FAIL,
 } from '../actions/type';
 
 const initState = {

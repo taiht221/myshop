@@ -9,17 +9,17 @@ import Login from 'pages/Auths/components/Login';
 import Register from 'pages/Auths/components/Register';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { openCart } from '../../redux/actions/cartAction';
+import { Link, useHistory } from 'react-router-dom';
 import { getCategory } from '../../redux/actions/categoryAction';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import SearchIcon from '@material-ui/icons/Search';
 import './style.scss';
+import { cartItemsCountSelector } from 'pages/CartPage/selector';
 
 export default function Header() {
-  let cart = useSelector((store) => store.cart);
+  let cartItemsCount = useSelector(cartItemsCountSelector);
+  // console.log(cartItemsCount.findIndex((x) => x.id === 16964464));
   let categorytitle = useSelector((store) => store.category);
-
+  const history = useHistory();
   let checkuser = useSelector((store) => store.user.current);
 
   const [isLoggedIn, setisLoggedIn] = useState(false);
@@ -37,7 +37,7 @@ export default function Header() {
 
   useEffect(() => {
     dispatch(getCategory());
-  }, []);
+  }, [dispatch]);
   const [anchorEl, setAnchorEl] = useState(null);
 
   const handleClick = (event) => {
@@ -89,18 +89,11 @@ export default function Header() {
   const handleClose = () => {
     setOpen(false);
   };
+
   const classes = useStyles();
   return (
     <header className="header">
       <div className="container">
-        {/* <AppBar position="static">
-          <Toolbar>
-            <Typography variant="h6" className={classes.title}>
-              News
-            </Typography>
-            <Button color="inherit">Login</Button>
-          </Toolbar>
-        </AppBar> */}
         <div className="row">
           <div className="header__top ">
             <div className="header__top--left ">
@@ -180,9 +173,9 @@ export default function Header() {
             </nav>
           </div>
           <div className="icons ">
-            <button onClick={() => dispatch(openCart())}>
+            <button onClick={() => history.push('/cart')}>
               <ShoppingCartIcon className={classes.basket} />
-              {cart.list.length > 0 && <span className="number-basket">{cart.list.length}</span>}
+              {cartItemsCount > 0 && <span className="number-basket">{cartItemsCount}</span>}
             </button>
           </div>
         </div>

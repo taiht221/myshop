@@ -23,9 +23,6 @@ function* postRegister(action) {
     // If `fetch()` fails, redux-saga will throw a catchable error
     let user = yield call(userApi.register, action.payload);
     // const user = yield call(callUser, action.payload);
-
-    console.log('user', user);
-
     if (user.error) {
       yield put({ type: REGISTER_USER_FAIL, payload: user.error });
       alert(user.error);

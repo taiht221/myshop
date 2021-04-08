@@ -12,6 +12,12 @@ export function loginUser(data) {
     payload: data,
   };
 }
+export function putUser(data) {
+  return {
+    type: LOGIN_USER,
+    payload: data,
+  };
+}
 export function loadingUser() {
   return {
     type: LOADING_USER,

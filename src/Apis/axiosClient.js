@@ -4,6 +4,7 @@ const axiosClient = axios.create({
   baseURL: 'https://cfd-reactjs.herokuapp.com',
   headers: {
     'Content-Type': 'application/json',
+    Authorization: `Bearer ${localStorage.getItem('token')}`,
   },
 });
 

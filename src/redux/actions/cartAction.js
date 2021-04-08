@@ -1,20 +1,31 @@
-import { CART_CLOSE, CART_ITEM_REMOVE, CART_OPEN } from './type';
+import { SHOW_MINI_CARD, HIDE_MINI_CARD, ADD_TO_CARD, SET_QUANTITY, REMOVE_FROM_CART } from './type';
 
-export function openCart() {
+export function openMiniCart() {
   return {
-    type: CART_OPEN,
+    type: SHOW_MINI_CARD,
   };
 }
 
-export function closeCart() {
+export function closeMiniCart() {
   return {
-    type: CART_CLOSE,
+    type: HIDE_MINI_CARD,
   };
 }
-
-export function removeItemcart(index) {
+export function addToCart(data) {
   return {
-    type: CART_ITEM_REMOVE,
-    payload: index,
+    type: ADD_TO_CARD,
+    payload: data,
+  };
+}
+export function setQuantity(data) {
+  return {
+    type: SET_QUANTITY,
+    payload: data,
+  };
+}
+export function removeFromCart(data) {
+  return {
+    type: REMOVE_FROM_CART,
+    payload: data,
   };
 }

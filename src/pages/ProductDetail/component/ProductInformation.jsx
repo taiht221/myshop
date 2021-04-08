@@ -7,6 +7,8 @@ import { Link } from 'react-router-dom';
 import AddToCartForm from './AddToCartForm';
 import './style.scss';
 import DOMPurify from 'dompurify';
+import { addToCart } from 'redux/actions/cartAction';
+import { useDispatch } from 'react-redux';
 
 ProductInformation.propTypes = {
   data: PropTypes.object,
@@ -30,13 +32,20 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 function ProductInformation({ data = {} }) {
+  const dispatch = useDispatch();
   const safeDes = DOMPurify.sanitize(data.description);
   const classes = useStyles();
   const Star = useRenderStart(data.rating_average);
   const percent = Math.round(100 - (parseInt(data.real_price) * 100) / parseInt(data.price));
   const [hide, setHide] = useState(true);
-  const handleAddToCartSubmit = (values) => {
-    console.log({ values });
+  const handleAddToCartSubmit = ({ quantity }) => {
+    dispatch(
+      addToCart({
+        id: data.id,
+        data,
+        quantity,
+      })
+    );
   };
   return (
     <>

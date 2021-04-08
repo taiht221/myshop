@@ -1,9 +1,16 @@
 // -- CART ---
 
-export const CART_OPEN = 'CART_OPEN';
-export const CART_CLOSE = 'CART_CLOSE';
-export const CART_ITEM_REMOVE = 'CART_ITEM_REMOVE';
-
+export const SHOW_MINI_CARD = 'SHOW_MINI_CARD';
+export const HIDE_MINI_CARD = 'HIDE_MINI_CARD';
+export const ADD_TO_CARD = 'ADD_TO_CARD';
+export const ADD_TO_CARD_SUCCESS = 'ADD_TO_CARD';
+export const ADD_TO_CARD_FAIL = 'ADD_TO_CARD';
+export const SET_QUANTITY = 'SET_QUANTITY';
+export const SET_QUANTITY_SUCCESS = 'SET_QUANTITY';
+export const SET_QUANTITY_FAIL = 'SET_QUANTITY';
+export const REMOVE_FROM_CART = 'REMOVE_FROM_CART';
+export const REMOVE_FROM_CART_SUCCESS = 'REMOVE_FROM_CART';
+export const REMOVE_FROM_CART_FAIL = 'REMOVE_FROM_CART';
 // Category
 export const GET_CATEGORY = 'GET_CATEGORY';
 export const GET_CATEGORY_SUCCESS = 'GET_CATEGORY_SUCCESS';

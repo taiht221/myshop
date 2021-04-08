@@ -30,7 +30,7 @@ function FilterByRating({ onChange, filters = {} }) {
             { rating_average: '4', label: useRenderStart(4) },
             { rating_average: '3', label: useRenderStart(3) },
           ].map((service) => (
-            <li key={service.value}>
+            <li key={service.rating_average}>
               <FormControlLabel
                 control={
                   <Checkbox

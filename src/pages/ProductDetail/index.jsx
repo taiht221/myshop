@@ -24,7 +24,7 @@ export default function ProductDetail() {
 
       setloading(false);
     })();
-  }, []);
+  }, [slug]);
   return (
     <>
       {loading ? (

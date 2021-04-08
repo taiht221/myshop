@@ -1,5 +1,6 @@
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import CartPopup from 'components/CartPopup/CartPopup';
+import CartPage from 'pages/CartPage';
 import ProductFeature from 'pages/Product';
 import UserDetails from 'pages/UserDetails/Index';
 import React from 'react';
@@ -32,13 +33,11 @@ function App() {
           <Route path="/myshop" exact>
             <Redirect to="/" />
           </Route>
-          <Route path="/cocoshop" exact>
-            <Redirect to="/" />
-          </Route>
           <Route path="/" exact component={Home} />
           <Route path="/thanh-toan" component={Checkout} />
           <Route path="/search" component={ProductFeature} />
           <Route path="/thong-tin" component={UserDetails} />
+          <Route path="/cart" component={CartPage} />
           <Route path="/:slug?" component={ProductDetail} />
 
           <Route component={Page404} />

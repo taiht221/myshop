@@ -1,12 +1,9 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Avatar, Button, LinearProgress, makeStyles, Typography } from '@material-ui/core';
-import { LockOutlined } from '@material-ui/icons';
-import InputField from 'components/form-controls/InputField/Index';
+import { Button } from '@material-ui/core';
 import QuantityField from 'components/form-controls/QuantityField';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { useSelector } from 'react-redux';
 import * as yup from 'yup';
 
 AddToCartForm.propTypes = {

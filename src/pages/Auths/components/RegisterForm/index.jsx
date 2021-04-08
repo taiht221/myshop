@@ -43,7 +43,7 @@ function RegisterForm(props) {
   const loadingUser = useSelector((state) => state.user.loading);
   const classes = useStyles();
   const schema = yup.object().shape({
-    name: yup.string().required('Nhập họ và tên của bạn.'),
+    name: yup.string().required('Nhập họ và tên của bạn.').trim(),
     // .test('should has at least two words', 'Hãy nhập đầy đủ họ và tên ít nhất 2 từ', (value) => {
     //   return value.spilt(' ').length >= 2;
     // }),

@@ -28,7 +28,6 @@ function Login(props) {
       }, 1000);
     } catch (error) {
       enqueueSnackbar('e', { variant: 'error' });
-      console.log(error);
     }
 
     // const handleSubmit = (values) => {

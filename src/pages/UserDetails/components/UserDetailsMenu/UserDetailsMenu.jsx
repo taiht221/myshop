@@ -8,11 +8,11 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 import BookmarkIcon from '@material-ui/icons/Bookmark';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import FaceIcon from '@material-ui/icons/Face';
-UserDeailsMenu.propTypes = {
+UserDetailsMenu.propTypes = {
   name: PropTypes.string,
 };
 
-function UserDeailsMenu({ name = '???' }) {
+function UserDetailsMenu({ name = '???' }) {
   const routerMatch = useRouteMatch();
   return (
     <>
@@ -67,4 +67,4 @@ function UserDeailsMenu({ name = '???' }) {
   );
 }
 
-export default UserDeailsMenu;
+export default UserDetailsMenu;

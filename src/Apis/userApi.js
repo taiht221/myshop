@@ -11,6 +11,11 @@ const userApi = {
 
     return axiosClient.post(url, data);
   },
+  change(data) {
+    const url = '/elearning/v4/login';
+
+    return axiosClient.put(url, data);
+  },
 };
 
 export default userApi;
