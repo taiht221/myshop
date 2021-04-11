@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import AddToCartForm from './AddToCartForm';
 import './style.scss';
 import DOMPurify from 'dompurify';
-import { addToCart } from 'redux/actions/cartAction';
+import { addToCart, openMiniCart } from 'redux/actions/cartAction';
 import { useDispatch } from 'react-redux';
 
 ProductInformation.propTypes = {
@@ -46,6 +46,7 @@ function ProductInformation({ data = {} }) {
         quantity,
       })
     );
+    dispatch(openMiniCart());
   };
   return (
     <>

@@ -1,4 +1,4 @@
-import { IconButton, LinearProgress, Menu, MenuItem } from '@material-ui/core';
+import { IconButton, LinearProgress, Menu, MenuItem, Snackbar } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
@@ -14,6 +14,8 @@ import { getCategory } from '../../redux/actions/categoryAction';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import './style.scss';
 import { cartItemsCountSelector } from 'pages/CartPage/selector';
+import { Alert } from '@material-ui/lab';
+import { closeMiniCart } from 'redux/actions/cartAction';
 
 export default function Header() {
   let cartItemsCount = useSelector(cartItemsCountSelector);
@@ -89,10 +91,23 @@ export default function Header() {
   const handleClose = () => {
     setOpen(false);
   };
-
+  const miniCartSelector = useSelector((state) => state.cart.openMiniCart);
+  const handleCloseSnackBar = () => {
+    dispatch(closeMiniCart());
+  };
   const classes = useStyles();
   return (
     <header className="header">
+      <Snackbar
+        open={miniCartSelector}
+        autoHideDuration={8000}
+        onClose={handleCloseSnackBar}
+        anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+      >
+        <Alert onClose={handleCloseSnackBar} severity="success">
+          Thêm vào giỏ hàng thành công
+        </Alert>
+      </Snackbar>
       <div className="container">
         <div className="row">
           <div className="header__top ">

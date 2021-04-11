@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import PropTypes from 'prop-types';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
@@ -9,9 +9,11 @@ ProductDetailsSlide.propTypes = {
   thumbnail: PropTypes.string,
 };
 
-function ProductDetailsSlide({ img = [], title = 'CoCoShop', thumbnail }) {
+function ProductDetailsSlide({ img = [], title = 'MyShop', thumbnail }) {
   const documentTitle = useChangeTitle(title);
-
+  useEffect(() => {
+    return documentTitle;
+  }, [documentTitle]);
   return (
     <Carousel dynamicHeight={false} swipeable={true} emulateTouch infiniteLoop>
       <div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import useRenderStart from 'hooks/useRenderStart';
 import { THUMBNAIL_PLACEHOLDER } from 'constants/index.js';
 import './style.scss';
@@ -8,11 +8,18 @@ ProductCard.propTypes = {
   product: PropTypes.object.isRequired,
 };
 function ProductCard({ product = {} }) {
+  const history = useHistory();
   const star = useRenderStart(product.rating_average);
   const percent = Math.round(100 - (parseInt(product.real_price) * 100) / parseInt(product.price));
   const thumbnail = product.images[0] ? product.images[0]?.base_url : THUMBNAIL_PLACEHOLDER;
   return (
-    <div className="category-card">
+    <div
+      className="category-card"
+      onClick={() => {
+        history.push(`/${product.slug}`);
+      }}
+    >
+      <span class="tooltiptext">{product.name}</span>
       <div className="card-img ">
         <Link to={`/${product.slug}`}>
           <img src={thumbnail} alt={product.name} />

@@ -21,7 +21,7 @@ export default function cartReducer(state = initState, action) {
 
     // thêm sản phẩm mới vào giỏ hàng
     case ADD_TO_CARD:
-      const newState2 = [...state.list];
+      const newState2 = JSON.parse(JSON.stringify(state.list));
       const newItem = action.payload;
       const index2 = newState2.findIndex((x) => x.id === newItem.id);
       if (index2 >= 0) {
@@ -39,7 +39,7 @@ export default function cartReducer(state = initState, action) {
       }
     // chọn lại số lượng sản phẩm mới trong giỏ hàng
     case SET_QUANTITY:
-      const newState = [...state.list];
+      const newState = JSON.parse(JSON.stringify(state.list));
       const { id, quantity } = action.payload;
       const index = newState.findIndex((x) => x.id === id);
       if (index >= 0 && quantity >= 1) {
