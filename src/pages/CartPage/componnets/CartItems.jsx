@@ -57,7 +57,7 @@ export default function CartItems({ data = [], onSubmit = null }) {
   return (
     <>
       {data.map((cartItems) => (
-        <Paper elevation={1} square className={classes.root} key={cartItems.id}>
+        <Paper elevation={1} square className={`${classes.root} cart-item`} key={cartItems.id}>
           {/* <img alt={cartItems.name} src={cartItems.images[0]?.base_url} /> */}
           <div className={classes.img}>
             <img src={cartItems.data.thumbnail_url} alt={cartItems.data.name}></img>
